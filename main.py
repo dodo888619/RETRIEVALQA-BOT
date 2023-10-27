@@ -92,8 +92,7 @@ if __name__ == "__main__":  # Main prompt loop
         if query.lower() in ['quit', 'q', 'exit']:
             break
         print("Vectorstore Chunks: ", pineconeretrieval(pinecone_vectordb, query, "mmr"),"\n\n\n")
-        answer = "Agent Result: " + conversational_agent.run(query)
-        if answer:
+        if answer := f"Agent Result: {conversational_agent.run(query)}":
             print(answer)
 
 index.delete(index_name)  # Delete index
